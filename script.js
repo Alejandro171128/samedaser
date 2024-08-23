@@ -1,4 +1,4 @@
-const logo = "samedaser/logo.jpg";
+const logo = "logo.jpg";
 const ancho = "220 px";
 const alto = "180 px";
 
