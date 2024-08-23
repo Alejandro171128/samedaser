@@ -1,8 +1,12 @@
+const logo = "logo.jpg";
+const ancho = "220 px";
+const alto = "180 px";
+
 function generatePageContent() {
     const content = `
         <div class="container">
             <!-- Logo de la empresa -->
-            <img src="ruta_al_logo.png" alt="Logo de la Empresa" class="logo">
+            <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
 
             <!-- Botones de servicios -->
             <div class="row">
@@ -41,7 +45,7 @@ function lim_pozo() {
     const content = `
         <div class="container">
         <!-- Logo de la empresa -->
-            <img src="ruta_al_logo.png" alt="Logo de la Empresa" class="logo">
+            <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
             <div class="row">
                 <div class="col-12 col-md-6">
                     <button class="btn btn-custom" onclick="agendar_servicio_limpieza_pozo()">Agendar servicio</button>
@@ -63,7 +67,7 @@ function molineria() {
     const content = `
         <div class="container">
         <!-- Logo de la empresa -->
-            <img src="ruta_al_logo.png" alt="Logo de la Empresa" class="logo">
+            <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
             <div class="row">
                 <div class="col-12 col-md-6">
                     <button class="btn btn-custom" onclick="agendar_recoleccion_plastico()">Agendar Recolección de plástico</button>
@@ -85,7 +89,7 @@ function fumigacion() {
     const content = `
         <div class="container">
         <!-- Logo de la empresa -->
-            <img src="ruta_al_logo.png" alt="Logo de la Empresa" class="logo">
+            <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
             <div class="row">
                 <div class="col-12 col-md-6">
                     <button class="btn btn-custom" onclick="agendar_servicio_fumigacion()">Agendar servicio de fumigación</button>
