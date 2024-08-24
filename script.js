@@ -7,7 +7,7 @@ function logo_empresa(){
     const logo = `<!-- Logo de la empresa -->
     <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">`;
 }
-
+//
 function generatePageContent() {
     const content = `
         <div class="container">
