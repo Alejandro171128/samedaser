@@ -3,8 +3,9 @@ const ancho = "220 px";
 const alto = "180 px";
 
 function generatePageContent() {
-    const content = `
+  const content = `
         <div class="container">
+        <h1>NUESTROS SERVICIOS</h2><br>
             <!-- Logo de la empresa -->
             <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
 
@@ -37,13 +38,14 @@ function generatePageContent() {
             </div>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
 //Menu principal
 function lim_pozo() {
-    const content = `
+  const content = `
         <div class="container">
+        <h2>Servicio de Limpieza de pozo</h2><br>
         <!-- Logo de la empresa -->
             <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
             <div class="row">
@@ -59,240 +61,205 @@ function lim_pozo() {
             </div>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
-//Menu principal
-function molineria() {
+//Formulario de servicio de limpieza de pozo
+function agendar_servicio_limpieza_pozo() {
     const content = `
+          <div class="container">
+              <h2>Agendar servicio de limpieza de pozo</h2><br>
+              <form>
+                  <!-- Formulario aquí -->
+                  ${input_nombre()}
+                  ${input_celular()}
+                  ${input_dir_serv()}
+                  ${input_correo()}
+                  ${input_informacion('Area para limpiar')}
+                  ${input_fecha_servicio()}
+                  
+                  <button type="submit" class="btn btn-custom">Enviar</button>
+              </form>
+              <button class="btn btn-custom mt-3" onclick="lim_pozo()">Volver</button>
+          </div>
+      `;
+    document.getElementById("content").innerHTML = content;
+  }
+
+  //Formulario de costo de servicio de limpieza de pozo
+  function costo_limpieza_pozo() {
+    const content = `
+          <div class="container">
+              <h2>Costo de Limpieza de Pozo</h2><br>
+
+                <select class="form-select form-select-lg mb-3" id="costo_pozo" name="costo_pozo" onchange="actualizarCostoPozo()">
+  <option selected>Seleccione el servicio...</option>
+  <option value="superficial">Superficial</option>
+  <option value="profundo">Profundo</option>
+</select>
+                
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" name="costo" id="costo" placeholder="Costo estimado" disabled>
+  <label for="floatingInput">Costo estimado</label>
+</div>
+              <button class="btn btn-custom mt-3" onclick="lim_pozo()">Volver</button>
+          </div>
+      `;
+    document.getElementById("content").innerHTML = content;
+  }
+
+
+//Menu principal
+function pqrsf() {
+  const content = `
         <div class="container">
-        <!-- Logo de la empresa -->
-            <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-custom" onclick="agendar_recoleccion_plastico()">Agendar Recolección de plástico</button>
-                </div>
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-custom" onclick="cotizar_compra_material_procesado()">Cotizar compra de material procesado</button>
-                </div>
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-custom" onclick="generatePageContent()">Menú principal</button>
-                </div>
-            </div>
+            <h2>PQRSF</h2><br>
+          ${input_nombre()}
+          ${input_celular()}
+          ${input_correo()}
+          ${input_informacion('Redacta los detalles')}
+          
+                <button type="submit" class="btn btn-custom" onclick="enviarFormulario()">Enviar</button>
+            </form>
+            <button class="btn btn-custom mt-3" onclick="generatePageContent()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
 //Menu principal
 function fumigacion() {
     const content = `
-        <div class="container">
-        <!-- Logo de la empresa -->
-            <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-custom" onclick="agendar_servicio_fumigacion()">Agendar servicio de fumigación</button>
-                </div>
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-custom" onclick="costo_servicio_fumigacion()">Costo servicio de fumigación</button>
-                </div>
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-custom" onclick="generatePageContent()">Menú principal</button>
-                </div>
-            </div>
-        </div>
-    `;
-    document.getElementById('content').innerHTML = content;
-}
-
-//Menu principal
-function pqrsf() {
-    const content = `
-        <div class="container">
-            <h2>Agendar Servicio de Fumigación</h2>
-            <form>
-                <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
-                <button type="submit" class="btn btn-custom">Enviar</button>
-            </form>
-            <button class="btn btn-custom mt-3" onclick="generatePageContent()">Volver</button>
-        </div>
-    `;
-    document.getElementById('content').innerHTML = content;
-}
+          <div class="container">
+          <h2>Servicios de fumigación</h2><br>
+          <!-- Logo de la empresa -->
+              <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
+              <div class="row">
+                  <div class="col-12 col-md-6">
+                      <button class="btn btn-custom" onclick="agendar_servicio_fumigacion()">Agendar servicio de fumigación</button>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <button class="btn btn-custom" onclick="costo_servicio_fumigacion()">Costo servicio de fumigación</button>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <button class="btn btn-custom" onclick="generatePageContent()">Menú principal</button>
+                  </div>
+              </div>
+          </div>
+      `;
+    document.getElementById("content").innerHTML = content;
+  }
 
 function costo_servicio_fumigacion() {
-    const content = `
+  const content = `
         <div class="container">
-            <h2>Cotizar costo servicio fumigación</h2>
-            <form>
-                <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
+            <h2>Cotizar servicio fumigación</h2><br>
+            ${input_nombre()}
+            ${input_celular()}
+            ${input_correo()}
+            ${input_fecha_servicio()}
+            ${input_dir_serv()}
+            ${input_informacion('Para que es la fumigación')}
+            
                 <button type="submit" class="btn btn-custom">Enviar</button>
             </form>
-            <button class="btn btn-custom mt-3" onclick="molineria()">Volver</button>
+            <button class="btn btn-custom mt-3" onclick="fumigacion()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
 function agendar_servicio_fumigacion() {
-    const content = `
+  const content = `
         <div class="container">
-            <h2>Agendar Servicio de Fumigación</h2>
+            <h2>Agendar Servicio de Fumigación</h2><br>
+              ${input_nombre()}
+            ${input_celular()}
+            ${input_correo()}
+            ${input_dir_serv()}
+            ${input_fecha_servicio()}
             <form>
                 <!-- Formulario aquí -->
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
+                    <input type="time" class="form-control" id="hora">
                 </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
+                ${input_informacion('Para que es la fumigación')}
                 <button type="submit" class="btn btn-custom">Enviar</button>
             </form>
-            <button class="btn btn-custom mt-3" onclick="molineria()">Volver</button>
+            <button class="btn btn-custom mt-3" onclick="fumigacion()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
-function agendar_recoleccion_plastico() {
+//Menu principal
+function molineria() {
     const content = `
+          <div class="container">
+          <h2>Recolección de plastico</h2><br>
+          <!-- Logo de la empresa -->
+              <img src=${logo} width=${ancho} height=${alto} alt="Logo de la Empresa" class="logo">
+              <div class="row">
+                  <div class="col-12 col-md-6">
+                      <button class="btn btn-custom" onclick="agendar_recoleccion_plastico()">Agendar Recolección de plástico</button>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <button class="btn btn-custom" onclick="cotizar_compra_material_procesado()">Cotizar compra de material procesado</button>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <button class="btn btn-custom" onclick="generatePageContent()">Menú principal</button>
+                  </div>
+              </div>
+          </div>
+      `;
+    document.getElementById("content").innerHTML = content;
+  }
+
+function agendar_recoleccion_plastico() {
+  const content = `
         <div class="container">
-            <h2>Agendar Recoleccion de plastico</h2>
-            <form>
-                <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
+            <h2>Agendar recolección de plástico</h2><br>
+            ${input_nombre()}
+            ${input_celular()}
+            ${input_correo()}
+            ${input_informacion('Material')}
+            <div class="form-floating mb-3">
+  <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad">
+  <label for="floatingInput">Cantidad</label><br>
+  
                 <button type="submit" class="btn btn-custom">Enviar</button>
             </form>
             <button class="btn btn-custom mt-3" onclick="molineria()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
 function cotizar_compra_material_procesado() {
-    const content = `
+  const content = `
         <div class="container">
-            <h2>Cotizar compra de material procesado</h2>
-            <form>
-                <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
+            <h2>Cotizar compra de material procesado</h2><br>
+            ${input_nombre()}
+            ${input_celular()}
+            ${input_correo()}
+            ${input_informacion('Material')}
+            <div class="form-floating mb-3">
+  <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad">
+  <label for="floatingInput">Cantidad</label><br>            
                 <button type="submit" class="btn btn-custom">Enviar</button>
-            </form>
             <button class="btn btn-custom mt-3" onclick="molineria()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
-function agendar_servicio_limpieza_pozo() {
-    const content = `
-        <div class="container">
-            <h2>Agendar Servicio de Limpieza de Pozo</h2>
-            <form>
-                <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
-                <button type="submit" class="btn btn-custom">Enviar</button>
-            </form>
-            <button class="btn btn-custom mt-3" onclick="lim_pozo()">Volver</button>
-        </div>
-    `;
-    document.getElementById('content').innerHTML = content;
-}
-
-function costo_limpieza_pozo() {
-    const content = `
-        <div class="container">
-            <h2>Costo de Limpieza de Pozo</h2>
-            <form>
-                <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="tipo_pozo" class="form-label">Tipo de Pozo</label>
-                    <select class="form-select" id="tipo_pozo">
-                        <option value="superficial">Superficial</option>
-                        <option value="profundo">Profundo</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="costo" class="form-label">Costo Estimado</label>
-                    <input type="number" class="form-control" id="costo">
-                </div>
-                <button type="submit" class="btn btn-custom">Calcular</button>
-            </form>
-            <button class="btn btn-custom mt-3" onclick="lim_pozo()">Volver</button>
-        </div>
-    `;
-    document.getElementById('content').innerHTML = content;
-}
-
+//Opciones a cargar del boton Alquilar unidades portatiles
 function alqui_uni_port() {
-    const content = `
+  const content = `
         <div class="container">
+        <h2>Alquiler de unidades portatiles</h2><br>
         <!-- Logo de la empresa -->
-            <img src="ruta_al_logo.png" alt="Logo de la Empresa" class="logo">
+            <img src=${logo} alt="Logo de la Empresa" class="logo">
             <div class="row">
                 <div class="col-12 col-md-6">
                     <button class="btn btn-custom" onclick="agendar_servicio()">Agendar servicio</button>
@@ -309,85 +276,90 @@ function alqui_uni_port() {
             </div>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
+//Formulario de Alquilar unidades portatiles boton Agendar servicio
 function agendar_servicio() {
-    const content = `
+  const content = `
         <div class="container">
-            <h2>Agendar Servicio</h2>
-            <form>
-                <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
-                <button type="submit" class="btn btn-custom">Enviar</button>
-            </form>
+            <h2>Agendar Servicio unidades portatileseee</h2><br>
+                ${contenedor_notificacion()}
+            <!-- Formulario aquí -->
+                ${input_nombre()}
+                ${input_celular()}
+                ${input_dir_serv()}
+                ${input_correo()}
+
+                <div class="form-floating mb-3">
+  <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad a alquilar">
+  <label for="floatingInput">Cantidad a alquilar</label>
+</div>
+                ${input_fecha_servicio()}
+                
+                <button type="submit" class="btn btn-custom" onclick="agendar_servicio_unidades_portatiles_form()">Enviar</button>
+            
             <button class="btn btn-custom mt-3" onclick="alqui_uni_port()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
+//Formulario de Alquilar unidades portatiles boton Agendar limpieza
 function agendar_limpieza() {
-    const content = `
+  const content = `
         <div class="container">
-            <h2>Agendar Limpieza</h2>
-            <form>
+            <h2>Agendar Limpieza Unidades portatiles</h2><br>
+            ${contenedor_notificacion()}
                 <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha del Servicio</label>
-                    <input type="date" class="form-control" id="fecha">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
-                <button type="submit" class="btn btn-custom">Enviar</button>
-            </form>
+                ${input_nombre()}
+                ${input_celular()}
+                ${input_correo()}
+                
+                <div class="form-floating mb-3">
+  <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad a limpiar">
+  <label for="floatingInput">Cantidad a limpiar</label>
+</div>
+                ${input_fecha_servicio()}
+
+                <button type="submit" class="btn btn-custom" onclick="agendar_limpieza_unidades_portatiles_form()">Enviar</button>
             <button class="btn btn-custom mt-3" onclick="alqui_uni_port()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
+//Formulario de Alquilar unidades portatiles boton costo del servicio
 function costo_servicio() {
-    const content = `
+  const content = `
         <div class="container">
-            <h2>Costo del Servicio</h2>
-            <form>
+            <h2>Costo del Servicio</h2><br>
                 <!-- Formulario aquí -->
-                <div class="mb-3">
-                    <label for="tipo_servicio" class="form-label">Tipo de Servicio</label>
-                    <select class="form-select" id="tipo_servicio">
-                        <option value="agendar">Agendar Servicio</option>
-                        <option value="limpieza">Agendar Limpieza</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="costo" class="form-label">Costo Estimado</label>
-                    <input type="number" class="form-control" id="costo">
-                </div>
-                <button type="submit" class="btn btn-custom">Calcular</button>
-            </form>
+
+                <select class="form-select form-select-lg mb-3" id="tipo_servicio" name="tipo_servicio" aria-label="Large select example" onchange="actualizarCosto()">
+  <option selected>Seleccione el servicio...</option>
+  <option value="alq_uni_por">Alquiler de unidades portatiles</option>
+  <option value="lim_uni_por">Servicio limpieza de unidades portatiles</option>
+</select>
+                
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" name="costo" id="costo" placeholder="Costo estimado" disabled>
+  <label for="floatingInput">Costo estimado</label>
+</div>
+
             <button class="btn btn-custom mt-3" onclick="alqui_uni_port()">Volver</button>
         </div>
     `;
-    document.getElementById('content').innerHTML = content;
+  document.getElementById("content").innerHTML = content;
 }
 
 // Llamar a la función para generar el contenido inicial
 generatePageContent();
+
+function resetForm() {
+  document.getElementById('nombre').value = '';
+  document.getElementById('celular').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('detalles').value = '';
+}
+
