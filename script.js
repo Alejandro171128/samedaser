@@ -283,7 +283,7 @@ function alqui_uni_port() {
 function agendar_servicio() {
   const content = `
         <div class="container">
-            <h2>Agendar Servicio unidades portatileseee</h2><br>
+            <h2>Agendar Servicio unidades portatiles</h2><br>
                 ${contenedor_notificacion()}
             <!-- Formulario aquí -->
                 ${input_nombre()}
