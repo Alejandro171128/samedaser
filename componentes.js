@@ -15,6 +15,15 @@ function input_nombre() {
     return cel;
   }
   
+  function input_contrasenia() {
+    const cel = `<div class="form-floating mb-3">
+    <input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña Admin">
+    <label for="floatingInput">Contraseña de Admin</label>
+  </div>`;
+  
+    return cel;
+  }
+
   function input_correo() {
     const correo = `<div class="form-floating mb-3">
     <input type="email" class="form-control" name="email" id="email" placeholder="Tu email">

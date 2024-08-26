@@ -33,7 +33,7 @@ function generatePageContent() {
                 </div>
 
             <div class="col-12 col-md-6">
-                    <button class="btn btn-custom">Panel Admin</button>
+                    <button class="btn btn-custom" onclick="panel_administrador()">Panel Admin</button>
                 </div>
             </div>
         </div>
